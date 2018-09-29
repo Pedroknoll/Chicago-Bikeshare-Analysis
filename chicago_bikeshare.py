@@ -89,7 +89,12 @@ input("Press Enter to continue...")
 # TODO: Count each gender. You should not use a function to do that.
 male = 0
 female = 0
-
+genders = column_to_list(data_list, -2)
+for gender in genders:
+    if gender.lower() == "male":
+        male += 1
+    elif gender.lower() == "female":
+        female += 1
 
 # Checking the result
 print("\nTASK 4: Printing how many males and females we found")
