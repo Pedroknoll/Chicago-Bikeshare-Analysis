@@ -201,9 +201,20 @@ def count_by_type(data, index):
     return type_count
 
 
+
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 print("\nTASK 7: Check the chart!")
+user_type_count = count_by_type(data_list, -3)
+types = list(user_type_count.keys())
+quantity = list(user_type_count.values())
+y_pos = list(range(len(types)))
+plt.bar(y_pos, quantity)
+plt.ylabel('Quantity')
+plt.xlabel('User Type')
+plt.xticks(y_pos, types)
+plt.title('Quantity by User Type')
+plt.show(block=True)
 
 
 input("Press Enter to continue...")
@@ -212,7 +223,7 @@ input("Press Enter to continue...")
 male, female = count_gender(data_list)
 print("\nTASK 8: Why the following condition is False?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Type your answer here."
+answer = input("Type your answer here.\n")
 print("Answer:", answer)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------
@@ -224,12 +235,76 @@ input("Press Enter to continue...")
 # TASK 9
 # TODO: Find the Minimum, Maximum, Mean and Median trip duration.
 # You should not use ready functions to do that, like max() or min().
-trip_duration_list = column_to_list(data_list, 2)
-min_trip = 0.
-max_trip = 0.
-mean_trip = 0.
-median_trip = 0.
 
+def get_min(list):
+    """Calc the min value from the list
+
+    Args:
+      list: The list from where the calc will be done
+    Returns:
+      Return the min value from the list
+    """
+    return sorted(list)[0]
+
+
+def get_max(list):
+    """Calc the max value from the list
+
+    Args:
+      list: The list from where the calc will be done
+    Returns:
+      Return the max value from the list
+    """
+    return sorted(list)[-1]
+
+
+def get_sum(list):
+    """Calc the sum of values from a list of numbers
+
+    Args:
+      list: The list from where the calc will be done
+    Returns:
+      Return the sum of values from a list of numbers
+    """
+    sum = 0
+    for value in list:
+        sum += value
+    return sum
+
+
+def get_mean(list):
+    """Calc the mean from a list of numbers
+
+    Args:
+      list: The list from where the calc will be done
+    Returns:
+      Return the mean from a list of numbers
+    """
+    return get_sum(list)/len(list)
+
+
+def get_median(list):
+    """Calc the median from a list of numbers
+
+    Args:
+      list: The list from where the calc will be done
+    Returns:
+      Return the median from a list of numbers
+    """
+    median_index = (len(list)-1)//2
+    if len(list)%2 == 0:
+        return (list[median_index] + list[median_index+1])/2
+    else:
+        return list[median_index]
+
+
+trip_duration_list = column_to_list(data_list, 2)
+ordered_duration_list = sorted([float(trip_duration) for \
+                        trip_duration in trip_duration_list if trip_duration])
+min_trip = get_min(ordered_duration_list)
+max_trip = get_max(ordered_duration_list)
+mean_trip = get_mean(ordered_duration_list)
+median_trip = get_median(ordered_duration_list)
 
 print("\nTASK 9: Printing the min, max, mean and median")
 print("Min: ", min_trip, "Max: ", max_trip, "Mean: ", mean_trip, "Median: ", median_trip)
