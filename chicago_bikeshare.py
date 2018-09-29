@@ -143,7 +143,21 @@ input("Press Enter to continue...")
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
+    """Return the most popular gender in the data_list
+
+    Args:
+      data_list: The list from where the data will be analysed
+    Returns:
+      String with the most popular gender in the data_list
+    """
     answer = ""
+    count_male, count_female = count_gender(data_list)
+    if count_male > count_female:
+        answer = "Male"
+    elif count_male < count_female:
+        answer = "Female"
+    else:
+        answer = "Equal"
     return answer
 
 
@@ -168,6 +182,8 @@ plt.title('Quantity by Gender')
 plt.show(block=True)
 
 input("Press Enter to continue...")
+# function to count the number of items of a column by type
+
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 print("\nTASK 7: Check the chart!")
