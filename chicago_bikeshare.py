@@ -184,6 +184,23 @@ plt.show(block=True)
 input("Press Enter to continue...")
 # function to count the number of items of a column by type
 
+def count_by_type(data, index):
+    """Return column items and their number of ocurrances
+
+    Args:
+      data: The list from where the data will be extracted
+      index: The index of the column to extract the count of items ocurrances
+    Returns:
+      Return a dictionary in the given format - {item: ocurrances}
+    """
+    column_list = column_to_list(data, index)
+    type_count = {}
+    for type in set(column_list):
+        if type != "":
+            type_count[type] = column_list.count(type)
+    return type_count
+
+
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 print("\nTASK 7: Check the chart!")
