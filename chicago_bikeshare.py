@@ -58,8 +58,18 @@ input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
 def column_to_list(data, index):
+    """Return a list with values of a specific column from another list
+
+    Args:
+      data: The list from where the data will be extracted
+      index: The index of the column to extract the values
+    Returns:
+      List with values of a specific column
+    """
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
+    for sample in data:
+        column_list.append(sample[index])
     return column_list
 
 
