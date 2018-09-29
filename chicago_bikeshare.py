@@ -335,26 +335,36 @@ input("Press Enter to continue...")
 # TASK 11
 # Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
 # def new_function(param1: int, param2: str) -> list:
-      """
-      Example function with annotations.
-      Args:
-          param1: The first parameter.
-          param2: The second parameter.
-      Returns:
-          List of X values
+"""
+Example function with annotations.
+Args:
+  param1: The first parameter.
+  param2: The second parameter.
+Returns:
+  List of X values
 
-      """
+"""
 
 input("Press Enter to continue...")
 # TASK 12 - Challenge! (Optional)
 # TODO: Create a function to count user types without hardcoding the types
 # so we can use this function with a different kind of data.
-print("Will you face it?")
-answer = "no"
+answer = input("Will you face it? [yes OR no]\n")
 
 def count_items(column_list):
-    item_types = []
-    count_items = []
+    """Function to consolidade the count by user type
+
+    Args:
+      column_list: The list to perform the consolidation
+    Returns:
+      Lists with user types and count items
+    """
+    type_count = {}
+    for type in set(column_list):
+        type_count[type] = column_list.count(type)
+
+    item_types = list(type_count.keys())
+    count_items = list(type_count.values())
     return item_types, count_items
 
 
