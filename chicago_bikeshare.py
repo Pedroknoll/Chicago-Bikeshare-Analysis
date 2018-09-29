@@ -110,8 +110,21 @@ input("Press Enter to continue...")
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 def count_gender(data_list):
+    """Return the number of ocurrances by gender in the list
+
+    Args:
+      data_list: The list from where the data will be analysed
+    Returns:
+      List with gender count in [count_male, counf_female] format
+    """
     male = 0
     female = 0
+    genders = column_to_list(data_list, -2)
+    for gender in genders:
+        if gender.lower() == "male":
+            male += 1
+        elif gender.lower() == "female":
+            female += 1
     return [male, female]
 
 
