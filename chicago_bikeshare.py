@@ -33,6 +33,11 @@ print("\n\nTASK 1: Printing the first 20 samples")
 # Let's change the data_list to remove the header from it.
 data_list = data_list[1:]
 
+# print the first 20 rows
+# setup the sample
+for sample in data_list[:20]:
+    print(sample)
+
 # We can access the features through index
 # E.g. sample[6] to print gender or sample[-2]
 
